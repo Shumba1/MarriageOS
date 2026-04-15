@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MarriageOSExtract",
+  "type": "object",
+  "required": [
+    "extract_id",
+    "source_ids",
+    "theme",
+    "role",
+    "claim",
+    "why_it_matters",
+    "audience",
+    "usable_for",
+    "confidence"
+  ],
+  "properties": {
+    "extract_id": { "type": "string" },
+    "source_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "theme": { "type": "string" },
+    "role": {
+      "type": "string",
+      "enum": ["doctrine", "repair", "guide", "knowledge", "product"]
+    },
+    "claim": { "type": "string" },
+    "why_it_matters": { "type": "string" },
+    "audience": {
+      "type": "string",
+      "enum": ["his", "hers", "both"]
+    },
+    "usable_for": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "contradicts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

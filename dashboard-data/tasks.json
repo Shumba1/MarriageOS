@@ -2,7 +2,32 @@
   "inbox": [
     {
       "id": "T-001",
-      "title": "Bootstrap plan for the first manual loop",
+      "title": "Lock source authority and active set",
+      "status": "inbox"
+    },
+    {
+      "id": "T-002",
+      "title": "Create normalized source records for currently available materials",
+      "status": "inbox"
+    },
+    {
+      "id": "T-003",
+      "title": "Generate atomic extract cards from the current source set",
+      "status": "inbox"
+    },
+    {
+      "id": "T-004",
+      "title": "Deduplicate extracts and surface contradictions",
+      "status": "inbox"
+    },
+    {
+      "id": "T-005",
+      "title": "Build the first target dossiers",
+      "status": "inbox"
+    },
+    {
+      "id": "T-006",
+      "title": "Verify dossier readiness for downstream processing",
       "status": "inbox"
     }
   ],

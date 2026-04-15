@@ -1,0 +1,14 @@
+extract_id: EXT-0000
+source_ids:
+  - SRC-000
+theme: ""
+role: repair # doctrine | repair | guide | knowledge | product
+claim: ""
+why_it_matters: ""
+audience: both # his | hers | both
+usable_for:
+  - "repair/example-slug"
+confidence: high # low | medium | high
+contradicts:
+  - ""
+notes: ""

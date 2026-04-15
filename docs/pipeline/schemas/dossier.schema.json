@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MarriageOSDossier",
+  "type": "object",
+  "required": [
+    "dossier_id",
+    "content_type",
+    "target_slug",
+    "target_title",
+    "canonical_dependencies",
+    "source_extract_ids",
+    "status"
+  ],
+  "properties": {
+    "dossier_id": { "type": "string" },
+    "content_type": {
+      "type": "string",
+      "enum": ["repair-module", "perspective-guide", "knowledge-article", "product-page", "script-pack"]
+    },
+    "target_slug": { "type": "string" },
+    "target_title": { "type": "string" },
+    "canonical_dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "source_extract_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "linked_items": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "approved"]
+    }
+  },
+  "additionalProperties": true
+}

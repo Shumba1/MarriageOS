@@ -1,12 +1,153 @@
 {
-  "project": "puppeteer-os-v1-scaffold",
+  "project": "MarriageOS",
   "status": "active",
-  "current_objective": "Bootstrap the repo scaffold and prove one manual task loop",
-  "current_phase": "bootstrap",
-  "next_action": "Build a worker pack for T-001 and run the first planning cycle",
-  "pending_approvals": 1,
-  "blocked_items": 0,
-  "active_tasks": 0,
+  "current_phase": "phase_0_source_conditioning",
+  "current_objective": "Implement the source pipeline so currently available Marriage Project materials become governed, normalized, deduplicated, contradiction-aware, and dossier-ready for downstream work.",
+  "next_action": "Complete T-001 to lock source authority and active set before any extract generation begins.",
   "health": "yellow",
-  "last_updated": "2026-04-14T12:00:00Z"
+  "pending_approvals": 0,
+  "blocked_items": 0,
+  "active_tasks": 6,
+  "last_updated": "2026-04-14T00:00:00Z",
+  "task_queue": [
+    {
+      "id": "T-001",
+      "title": "Lock source authority and active set",
+      "skill": "planning",
+      "input": "Canonical governance files and current Marriage Project folder structure",
+      "status": "pending",
+      "priority": 1,
+      "worker_role": "Driver",
+      "depends_on": [],
+      "output_path": [
+        "docs/README_ACTIVE_SET.md",
+        "docs/SOURCE_MANIFEST.md",
+        "docs/source-notes/authority-classification-notes.md"
+      ],
+      "output_format": "markdown",
+      "acceptance_summary": "Canonical, feeder, and reference-only sources are explicitly classified with conflict rules."
+    },
+    {
+      "id": "T-002",
+      "title": "Create normalized source records for currently available materials",
+      "skill": "research",
+      "input": "All currently available source materials plus raw source template",
+      "status": "pending",
+      "priority": 2,
+      "worker_role": "Driver",
+      "depends_on": [
+        "T-001"
+      ],
+      "output_path": [
+        "docs/source-records/"
+      ],
+      "output_format": "markdown",
+      "acceptance_summary": "Each major source item or cluster has a normalized source record with tier, role, allowed uses, and summary."
+    },
+    {
+      "id": "T-003",
+      "title": "Generate atomic extract cards from the current source set",
+      "skill": "research",
+      "input": "Normalized source records, source files, extract template, and extract schema",
+      "status": "pending",
+      "priority": 3,
+      "worker_role": "Driver",
+      "depends_on": [
+        "T-001",
+        "T-002"
+      ],
+      "output_path": [
+        "sources/derived/extracts/"
+      ],
+      "output_format": "yaml_or_markdown",
+      "acceptance_summary": "Atomic extract cards preserve source attribution and are suitable for later dedupe."
+    },
+    {
+      "id": "T-004",
+      "title": "Deduplicate extracts and surface contradictions",
+      "skill": "synthesis",
+      "input": "Raw extract set plus canonical governance files",
+      "status": "pending",
+      "priority": 4,
+      "worker_role": "Driver",
+      "depends_on": [
+        "T-003"
+      ],
+      "output_path": [
+        "sources/derived/extracts-deduped/",
+        "docs/contradictions.md"
+      ],
+      "output_format": "markdown",
+      "acceptance_summary": "Duplicate extracts are merged, contradictions are explicit, and canonical overrides are recorded."
+    },
+    {
+      "id": "T-005",
+      "title": "Build the first target dossiers",
+      "skill": "synthesis",
+      "input": "Canonical layer, deduplicated extracts, contradiction ledger, dossier template, and dossier schema",
+      "status": "pending",
+      "priority": 5,
+      "worker_role": "Driver",
+      "depends_on": [
+        "T-004"
+      ],
+      "output_path": [
+        "sources/derived/dossiers/"
+      ],
+      "output_format": "markdown",
+      "acceptance_summary": "At least four target dossiers exist: one repair module, one perspective guide, one knowledge article, and one product/tool page."
+    },
+    {
+      "id": "T-006",
+      "title": "Verify dossier readiness for downstream processing",
+      "skill": "qa",
+      "input": "First dossier set plus contradiction ledger and verifier prompt",
+      "status": "pending",
+      "priority": 6,
+      "worker_role": "Critic",
+      "depends_on": [
+        "T-005"
+      ],
+      "output_path": [
+        "docs/dossier-readiness-report.md"
+      ],
+      "output_format": "markdown",
+      "acceptance_summary": "Each dossier receives a readiness judgement with missing inputs, contradiction risk, and concrete recommendations."
+    }
+  ],
+  "blockers": [],
+  "observability_focus": {
+    "mode": "source_pipeline",
+    "primary_questions": [
+      "Are source authority and source tiers explicitly locked?",
+      "Have all currently available source materials been normalized?",
+      "Are extracts atomic and attributable?",
+      "Have duplicates and contradictions been surfaced rather than silently blended?",
+      "Are dossiers being built one target object at a time?",
+      "Are dossiers actually ready for downstream work?"
+    ],
+    "primary_metrics": [
+      "canonical_sources_locked",
+      "raw_source_record_count",
+      "unrecorded_source_count",
+      "extract_count",
+      "deduped_extract_count",
+      "contradiction_count",
+      "dossier_count",
+      "dossier_ready_count",
+      "downstream_ready_ratio"
+    ]
+  },
+  "phase_rules": {
+    "do_not_start_extract_generation_before": [
+      "T-001",
+      "T-002"
+    ],
+    "do_not_start_dossier_building_before": [
+      "T-004"
+    ],
+    "do_not_start_downstream_generation_before": [
+      "T-006"
+    ]
+  }
 }

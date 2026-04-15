@@ -1,8 +1,8 @@
 {
-  "project": "puppeteer-os-v1-scaffold",
-  "mission": "Build a local-first, repo-backed project operating system that lets one human run disciplined AI-assisted project workflows without direct model APIs.",
-  "phase": "bootstrap",
-  "current_objective": "Bootstrap the repo scaffold and prove one manual task loop",
+  "project": "MarriageOS",
+  "mission": "Build the governed source-conditioning layer for MarriageOS so downstream content generation and later implementation are grounded in canonical doctrine, structured extracts, contradiction-aware synthesis, and output-ready dossiers.",
+  "phase": "phase_0_source_conditioning",
+  "current_objective": "Implement the source pipeline so currently available Marriage Project materials become governed, normalized, deduplicated, contradiction-aware, and dossier-ready for downstream work.",
   "health": "yellow",
   "pending_approvals": 1,
   "blocked_items": 1
